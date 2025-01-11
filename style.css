@@ -1,0 +1,426 @@
+
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+.banner .content .model{
+    background-image: url(images/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .banner .content .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Choose your preferred font */
+}
+
+.image-container {
+  display: flex; /* Arranges images horizontally */
+  flex-wrap: wrap; /* Allows images to stack on smaller screens */
+  justify-content: center; /* Aligns images symmetrically on wider screens */
+}
+
+.image-container img {
+  margin: 10px; /* Adjust spacing between images */
+  border: 5px solid black; /* Set border thickness and color */
+  border-radius: 10px; /* Create smooth edges */
+  width: 48%; /* Set image width for wider screens */
+  object-fit: cover; /* Ensures images fill the space while maintaining aspect ratio */
+}
+
+/* Media query for responsive layout on smaller screens */
+@media (max-width: 768px) {
+  .image-container img {
+    width: 100%; /* Set width to 100% for stacked layout on phones */
+  }
+}
+.my-works-button {
+  background-color: #272e3f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    background-color: #222;
+    color: #002366; /* Royal blue text color */
+    overflow: hidden;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+/* About Section */
+.about {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #002366; /* Royal blue heading color */
+}
+
+.about p {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Services Section */
+.services {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #002366; /* Royal blue heading color */
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services li {
+    width: 200px; /* Set a fixed width for all cards */
+    margin: 20px;
+    padding: 30px;
+    background-color: #002366; /* Royal blue background for all cards */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    color: #fff; /* White text color */
+    text-align: center;
+}
+
+.services li:nth-child(1) h3 {
+    font-size: 1.2rem;
+}
+.services li:nth-child(1) p {
+    font-size: 1rem;
+}
+
+.services li:nth-child(2) h3 {
+    font-size: 1.2rem;
+}
+.services li:nth-child(2) p {
+    font-size: 1rem;
+}
+
+.services li:nth-child(3) h3 {
+    font-size: 1.2rem;
+}
+.services li:nth-child(3) p {
+    font-size: 1rem;
+}
+
+.services li:nth-child(4) h3 {
+    font-size: 1.2rem;
+}
+.services li:nth-child(4) p {
+    font-size: 1rem;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #002366; /* Royal blue heading color */
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project {
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+/* Footer Section */
+footer {
+    background-color: #222;
+    color: #002366; /* Royal blue text color */
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #002366; /* Royal blue link color */
+    text-decoration: none;
+}
+
+/* Responsive Design (Optional) */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .project {
+        width: 100%;
+    }
+}
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid #ddd; /* Add a solid border to the container */
+  border-radius: 10px; /* Add rounded corners */
+  padding: 20px; /* Add some padding inside the container */
+}
+
+.project {
+  margin: 10px; /* Adjust margin between projects */
+  width: 250px; /* Set a fixed width for each project */
+  text-align: center;
+  border: 1px solid #ddd; /* Add a solid border to each project */
+  border-radius: 5px; /* Add rounded corners to projects */
+  padding: 15px; /* Add some padding inside each project */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  transition: transform 0.3s ease; /* Add a smooth hover effect */
+}
+
+.project:hover {
+  transform: scale(1.05); /* Increase project size slightly on hover */
+}
+
+.project img {
+  width: 100%; /* Ensure images fill the project width */
+  display: block; /* Make sure images behave like block elements */
+  margin-bottom: 10px; /* Add some space below the image */
+}
+
+.project h3 {
+  font-size: 1.2rem; /* Adjust heading size */
+  margin-bottom: 5px; /* Add some space below the heading */
+}
+
+.project p {
+  font-size: 0.9rem; /* Adjust paragraph size */
+  line-height: 1.5; /* Improve readability */
+}
+/* ... existing CSS ... */
+
+body {
+  background-color: #000; /* Dark background for the entire page */
+  color: #fff; /* White text color for all elements by default */
+}
+
+.banner .content h1 {
+
+  text-shadow: none; /* Remove text shadow */
+}
+
+.banner .content .author {
+  color: #fff; /* White text color for the author */
+  text-shadow: none; /* Remove text shadow */
+}
+
+.banner .content h2 {
+  color: #fff; /* White text color for subheadings */
+}
+
+.services li {
+  color: #fff; /* White text color for service cards */
+}
+
+/* ... other styles ... */
+.about p {
+  color: #fff; /* Set text color to white */
+}
+.about h2 {
+  color: #002366; /* Royal blue color */
+  text-shadow: 0 0 5px #fff; /* White stroke */
+}
